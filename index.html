@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Univers LT W05_55 Roman';
+            src: url("https://ccc-frontend.github.io/fonts/fonts/7b452431-e4a6-48a8-8ba1-c6300f9384df.woff2") format("woff2");
+            font-weight: 400;
+            font-display: swap
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth !important
+        }
+
+        .main {
+            margin-bottom: 100px
+        }
+
+        .inner-wrapper {
+            padding: 0 20px
+        }
+
+        .header {
+            position: relative;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            overflow-x: hidden
+        }
+
+        .header__picture {
+            width: 100%;
+            display: block;
+            min-height: 650px;
+        }
+
+        .header__inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            height: 100%;
+            width: 100%;
+            max-width: 1340px;
+            padding: 0 20px;
+            -webkit-box-sizing: padding-box;
+            box-sizing: padding-box;
+            z-index: 1
+        }
+
+        .header__players {
+            position: absolute;
+            bottom: 0;
+            right: 2%;
+            width: 60%;
+            z-index: 2
+        }
+
+        .header__logos {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            margin-top: 70px
+        }
+
+        .header__logo {
+            width: 21%;
+            min-width: 170px
+        }
+
+        .header__motto {
+            font-family: 'Univers LT W05_55 Roman' !important;
+            font-size: 55px;
+            line-height: 64px;
+            letter-spacing: -2px;
+            max-width: 530px;
+            text-transform: uppercase;
+            margin-top: 140px;
+            font-weight: 400
+        }
+
+        .header__disclaimer {
+            position: absolute;
+            bottom: 25px;
+            font-family: 'Univers LT W05_55 Roman' !important;
+            font-size: 10px;
+            line-height: 12px;
+            text-transform: uppercase;
+            max-width: 450px;
+            font-weight: bold;
+        }
+
+        @media (max-width:1500px) {
+            .header__motto {
+                margin-top: 80px
+            }
+        }
+
+        @media (max-width:1200px) {
+            .header__motto {
+                font-size: 40px;
+                line-height: 49px;
+                max-width: 450px
+            }
+
+            .header__players {
+                right: -2%
+            }
+        }
+
+        @media (max-width:1024px) {
+            .header__picture {
+                height: auto;
+                min-height: auto;
+            }
+
+            .header__motto {
+                margin-top: 40px
+            }
+
+            .header__disclaimer {
+                position: static;
+                margin-top: 65px
+            }
+
+            .header__players {
+                right: initial;
+                left: 60%;
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+                width: 80%
+            }
+        }
+
+        @media (max-width:940px) {
+            .header__picture {
+                height: 750px
+            }
+
+            .header__players {
+                width: 600px;
+
+            }
+        }
+
+        @media (max-width:620px) {
+            .header {
+                margin-top: 50px;
+                margin-bottom: 0
+            }
+
+            .header__motto {
+                margin-top: 25px
+            }
+
+            .header__picture {
+                height: 800px
+            }
+
+            .header__players {
+                width: 400px;
+                left: 50%;
+            }
+
+            .header__logos {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column
+            }
+
+            .header__logo {
+                margin-bottom: 25px
+            }
+        }
+
+        .section {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            max-width: 1300px;
+            padding: 75px 0;
+            margin: 0 auto;
+            border-bottom: 1px solid #707070
+        }
+
+        .section__inner {
+            width: 60%;
+            padding-left: 80px
+        }
+
+        .section__inner.left {
+            width: 40%;
+            padding-left: 0
+        }
+
+        .section__title {
+            font-family: 'Univers LT W05_55 Roman' !important;
+            font-size: 55px;
+            line-height: 64px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            font-weight: 400
+        }
+
+        .section__paragraph {
+            font-family: 'Univers LT W05_55 Roman' !important;
+            font-size: 18px;
+            margin-top: 30px;
+            line-height: 28px
+        }
+
+        .section__paragraph.main {
+            font-family: 'Univers LT W05_55 Roman' !important;
+            text-transform: uppercase;
+            font-size: 26px;
+            line-height: 32px;
+            margin-bottom: 30px;
+            margin-top: 0
+        }
+
+        .section__paragraph.top {
+            margin-top: 0
+        }
+
+        .section__paragraph.icon {
+            font-family: 'Univers LT W05_55 Roman' !important;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: 30px
+        }
+
+        .section__paragraph.second span {
+            text-transform: uppercase
+        }
+
+
+        .section__icon {
+            width: 35px;
+            margin-right: 20px
+        }
+
+        .section__icon-smaller {
+            width: 27px;
+            margin-left: 2px;
+            margin-right: 26px;
+        }
+
+        .section__link {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            font-family: 'Univers LT W05_55 Roman' !important;
+            width: 230px;
+            height: 45px;
+            font-size: 12px;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 50px;
+            cursor: pointer;
+            -webkit-transition: .3s;
+            transition: .3s
+        }
+
+        .section__link:hover {
+            background-color: #fff;
+            color: #000
+        }
+
+        .section__benefits {
+            margin-top: 60px;
+            margin-bottom: 60px
+        }
+
+        .section__list {
+            list-style: none
+        }
+
+        .section__item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 20px
+        }
+
+        .section__img {
+            width: 75px
+        }
+
+        .section__texts {
+            margin-left: 20px
+        }
+
+        .section__text {
+            font-family: 'Univers LT W05_55 Roman' !important;
+            font-size: 18px
+        }
+
+        .section__text:first-child {
+            text-transform: uppercase
+        }
+
+        .section__link-text {
+            text-decoration: underline;
+            font-family: 'Univers LT W05_55 Roman' !important;
+            font-size: 18px;
+            cursor: pointer;
+            color: #000
+        }
+
+        .section__footer-img {
+            position: relative;
+            display: block;
+            margin: 100px auto 0 auto;
+            width: 95%;
+            bottom: -75px
+        }
+
+        @media (max-width:1200px) {
+            .section__title {
+                font-size: 40px;
+                line-height: 49px
+            }
+
+            .section__inner {
+                padding-left: 40px
+            }
+        }
+
+        @media (max-width:764px) {
+            .section {
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+
+            .section__inner,
+            .section__inner.left {
+                width: 100%;
+                padding-left: 0
+            }
+
+            .section__title {
+                margin-bottom: 40px
+            }
+
+            .section__footer-img {
+                display: block;
+                margin: 0 auto 0 auto;
+                overflow-x: hidden
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <header class="header">
+            <img src="images/header-bg.jpg" alt="header-pic" class="header__picture" id="header-id">
+            <img src="images/spotify-players.png" alt="players" class="header__players">
+            <div class="header__inner">
+                <div class="header__logos">
+                    <img src="images/klubccc.svg" alt="klub-ccc" class="header__logo">
+                    <img src="images/spotify.svg" alt="spotify-logo" class="header__logo">
+                </div>
+                <h1 class="header__motto">Zyskaj 2 miesiące spotify premium za darmo</h1>
+                <p class="header__disclaimer">OFERTA DOTYCZY PLANU PREMIUM INDIVIDUAL. PO OKRESIE PRÓBNYM 19,99
+                    ZŁ/MIESIĄC.
+                    MOŻESZ ZREZYGNOWAĆ W KAŻDEJ CHWILI. OFERTA WAŻNA TYLKO DLA UŻYTKOWNIKÓW,
+                    KTÓRZY NIE KORZYSTALI JESZCZE Z PREMIUM. KOD MOŻNA WYKORZYSTAĆ DO 11 LIPCA
+                    2023R. OBOWIĄZUJĄ WARUNKI.</p>
+            </div>
+        </header>
+        <div class="inner-wrapper">
+            <section class="section">
+                <div class="section__inner left">
+                    <h2 class="section__title">
+                        Spotify Premium dla Ciebie w Klubie CCC
+                    </h2>
+                </div>
+                <div class="section__inner">
+                    <p class="section__paragraph main">Zyskaj nieograniczony dostęp do muzyki
+                        i podcastów gdziekolwiek jesteś!</p>
+                    <p class="section__paragraph">Skorzystaj z wyjątkowej oferty Spotify dla Klubowiczów Standard.
+                        Dostaniesz od nas aż 2 miesiące Spotify Premium za darmo! Wystarczy, że zrobisz zakupy w sklepie
+                        internetowym ccc.eu lub w aplikacji mobilnej CCC.</p>
+                    <p class="section__paragraph">Używaj Spotify tak jak lubisz. Serwis jest dostępny na różnych
+                        urządzeniach: komputerach, telefonach, tabletach, głośnikach, telewizorach i w samochodach.
+                        Możesz sprawnie przełączać się między nimi dzięki Spotify Connect.</p>
+                    <p class="section__paragraph">Spotify to cyfrowa platforma do odtwarzania muzyki i podcastów, która
+                        zapewnia natychmiastowy dostęp do milionów utworów i innych treści twórców z całego świata.
+                        Sprawdź to!</p>
+                </div>
+            </section>
+            <section class="section">
+                <div class="section__inner left">
+                    <h2 class="section__title">
+                        Jak skorzystać
+                        z oferty?
+                    </h2>
+                </div>
+                <div class="section__inner">
+                    <div class="section__detail">
+                        <p class="section__paragraph icon">
+                            <img src="images/icon1.svg" alt="login-icon" class="section__icon section__icon-smaller">
+                            <span class="section__text">Obserwuj otrzymywane od nas komunikaty SMSowe</span>
+                        </p>
+                        <p class="section__paragraph icon">
+                            <img src="images/icon2.svg" alt="login-icon" class="section__icon section__icon-smaller">
+                            <span class="section__text">Po otrzymaniu SMSa zrób zakupy w sklepie internetowym ccc.eu lub
+                                w aplikacji mobilnej CCC. Masz na to 30 dni.</span>
+                        </p>
+                        <p class="section__paragraph icon">
+                            <img src="images/iconc.svg" alt="login-icon" class="section__icon">
+                            <span class="section__text">W ciągu 5 dni od zakupów wyślemy Ci SMSem kod.</span>
+                        </p>
+                        <p class="section__paragraph icon">
+                            <img src="images/icond.svg" alt="login-icon" class="section__icon">
+                            <span class="section__text">Wejdź na dedykowaną promocji stronę</span>
+                        </p>
+                        <p class="section__paragraph">I już! Korzystaj ze Spotify tak jak lubisz! Proste? Proste!</p>
+                        <a href="" class="section__link">Skorzystaj teraz</a>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <div class="section__inner left">
+                    <h2 class="section__title">
+                        Dlaczego warto skorzystać ze spotify premium?
+                    </h2>
+                </div>
+                <div class="section__inner">
+                    <p class="section__paragraph top">Niezależnie od tego gdzie jesteś, możesz słuchać swojej ulubionej
+                        muzyki,
+                        ciesząc się każdym utworem bez reklam! Piosenki i podcasty odtwarzaj dowolnie, także na
+                        telefonie. A
+                        jeżeli chcesz pominąć utwór, po prostu naciśnij „dalej”. Bez limitu!</p>
+                    <div class="section__benefits">
+                        <ul class="section__list">
+                            <li class="section__item">
+                                <img src="images/icon3.svg" alt="icon" class="section__img">
+                                <div class="section__texts">
+                                    <p class="section__text">Pobieranie muzyki</p>
+                                    <p class="section__text">Słuchaj, gdziekolwiek jesteś.</p>
+                                </div>
+                            </li>
+                            <li class="section__item">
+                                <img src="images/icon4.svg" alt="icon" class="section__img">
+                                <div class="section__texts">
+                                    <p class="section__text">Bez reklam</p>
+                                    <p class="section__text">Ciesz się nieprzerwaną muzyką.</p>
+                                </div>
+                            </li>
+                            <li class="section__item">
+                                <img src="images/icon6.svg" alt="icon" class="section__img">
+                                <div class="section__texts">
+                                    <p class="section__text">Odtwarzaj dowolne utwory</p>
+                                    <p class="section__text">Nawet na telefonie.</p>
+                                </div>
+                            </li>
+                            <li class="section__item">
+                                <img src="images/icon7.svg" alt="icon" class="section__img">
+                                <div class="section__texts">
+                                    <p class="section__text">Pomijanie bez limitu</p>
+                                    <p class="section__text">Po prostu naciśnij Dalej.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="" class="section__link-text">Szczegóły oferty w regulaminie promocji</a>
+                </div>
+            </section>
+            <section class="section">
+                <div class="section__inner left">
+                    <h2 class="section__title">
+                        Odkryj muzyczne inspiracje w stylu CCC
+                    </h2>
+                </div>
+                <div class="section__inner">
+                    <p class="section__paragraph main">W sam raz na letnie przyjęcia w ogrodzie lub wypady za miasto!
+                    </p>
+                    <p class="section__paragraph">W aplikacji Spotify czeka na Ciebie 6 playlist, przygotowanych przez
+                        CCC
+                        które zostały zainspirowane stylem naszych marek i są pełne przebojów tego sezonu. Wpisz „CCC” w
+                        wyszukiwarce Spotify i odkryj muzykę, którą pokochasz. Możesz także zeskanować muzyczne kody
+                        poniżej:</p>
+                </div>
+                <img src="images/footer-img.png" alt="" class="section__footer-img" id="footer-id">
+            </section>
+        </div>
+    </main>
+    <script>
+        (function () {
+            const headerImg = document.getElementById("header-id");
+            const footerImg = document.getElementById("footer-id");
+
+            function setImage() {
+                let windowWidth = window.innerWidth;
+
+                if (windowWidth <= 1024) {
+                    headerImg.setAttribute('src', 'images/header-bg-mobile.jpg');
+
+                } else {
+                    headerImg.setAttribute('src', 'images/header-bg.jpg');
+
+                }
+
+                if (windowWidth <= 700) {
+                    footerImg.setAttribute('src', 'images/footer-img-mobile.png');
+                } else {
+                    footerImg.setAttribute('src', 'images/footer-img.png');
+                }
+            }
+
+            window.addEventListener("resize", setImage);
+            window.addEventListener("load", setImage);
+        })()
+    </script>
+</body>
+
+</html>
